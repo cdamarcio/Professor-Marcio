@@ -1,240 +1,378 @@
-/* --- RESET E BASE --- */
+/* Configurações Gerais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --primary-blue: #003366;
+    --secondary-blue: #004080;
+    --light-blue: #0066cc;
+    --accent-blue: #1a8cff;
+    --white: #ffffff;
+    --off-white: #f8f9fa;
+    --gray: #e9ecef;
+    --dark-gray: #495057;
+    --gold: #d4af37;
 }
 
 body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--white);
+    color: var(--primary-blue);
+    overflow-x: hidden;
     line-height: 1.6;
-    color: #333;
-    scroll-behavior: smooth;
-    padding-top: 70px; /* Evita que o conteúdo fique atrás do menu fixo */
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* --- CABEÇALHO (HEADER) --- */
-.header {
-    background-color: #004080; /* Azul Marinho */
-    padding: 1rem 0;
-    position: fixed;
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
     width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--light-blue) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Fundo Animado Sutil */
+.hero-section::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    background-size: 100px 100px;
+    animation: floatBg 20s linear infinite;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+@keyframes floatBg {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
 }
 
-.logo {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.logo span {
-    font-weight: 300;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-}
-
-.nav-menu li a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-    transition: 0.3s;
+.hero-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--white);
     text-transform: uppercase;
-    font-size: 0.85rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
 }
 
-.nav-menu li a:hover {
-    color: #ffd700; /* Dourado */
+.hero-subtitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
 }
 
-/* --- MENU MOBILE (HAMBÚRGUER) --- */
-.menu-toggle {
-    display: none;
-    color: white;
-    font-size: 1.8rem;
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    border: 5px solid var(--white);
+    transition: transform 0.5s ease;
+}
+
+.hero-image-container:hover {
+    transform: scale(1.03);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-badge {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--primary-blue);
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    white-space: nowrap;
+    z-index: 3;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--white);
+    font-size: 2.5rem;
+    animation: bounce 2s infinite;
     cursor: pointer;
+    z-index: 5;
 }
 
-/* --- SEÇÕES GERAIS --- */
-.section-padding {
-    padding: 80px 0;
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-15px); }
+    60% { transform: translateX(-50%) translateY(-7px); }
+}
+
+/* --- Seção Denúncias --- */
+.denuncias-section {
+    background: var(--off-white);
+    padding: 100px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #004080;
-    margin-bottom: 40px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
 }
 
-/* --- SEÇÃO VÍDEOS --- */
-.videos-section {
-    padding: 80px 0;
-    background-color: #f4f7f6;
-    text-align: center;
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 2px;
 }
 
-.subtitle {
-    margin-bottom: 40px;
-    color: #666;
-}
-
-.video-grid {
+.denuncias-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.video-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+.denuncia-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,51,102,0.08);
+    border-left: 6px solid var(--primary-blue);
+    transition: all 0.3s ease;
 }
 
-.video-card:hover {
+.denuncia-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,51,102,0.15);
 }
 
-.video-card a {
-    text-decoration: none;
-    color: inherit;
+.denuncia-icon {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
 }
 
-/* Container da Imagem com Efeito Play */
-.thumb-container {
+.denuncia-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.denuncia-date {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-top: 15px;
+}
+
+.denuncia-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.status-pendente { background: #ffc107; color: #000; }
+.status-resolvido { background: #28a745; color: #fff; }
+.status-investigando { background: #17a2b8; color: #fff; }
+
+/* --- Seção Propostas --- */
+.propostas-section {
+    background: var(--primary-blue);
+    padding: 100px 20px;
+    color: var(--white);
+}
+
+.propostas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.proposta-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.1);
     position: relative;
-    width: 100%;
-    height: 200px;
 }
 
-.thumb-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.play-overlay {
+.proposta-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.05);
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 64, 128, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: 0.3s;
+    top: 10px;
+    right: 20px;
 }
 
-.play-overlay i {
-    color: white;
-    font-size: 3.5rem;
+.proposta-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 20px;
 }
 
-.video-card:hover .play-overlay {
-    opacity: 1;
+.proposta-list {
+    list-style: none;
+    margin-top: 20px;
 }
 
-.video-info {
-    padding: 20px;
-    text-align: left;
+.proposta-list li {
+    padding: 8px 0 8px 25px;
+    position: relative;
 }
 
-.video-info h3 {
-    font-size: 1.2rem;
-    color: #004080;
-    margin-bottom: 10px;
+.proposta-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: bold;
 }
 
-.video-info p {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* --- FOOTER E WHATSAPP --- */
-.footer {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-}
-
+/* --- WhatsApp Flutuante --- */
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #25d366;
-    color: white;
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
+    background: #25d366;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 30px;
-    box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37,211,102,0.4);
     z-index: 1000;
+    text-decoration: none;
     transition: 0.3s;
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(10deg);
 }
 
-/* --- RESPONSIVIDADE --- */
+.whatsapp-float i {
+    font-size: 2.2rem;
+    color: white;
+}
+
+.whatsapp-tooltip {
+    position: fixed;
+    bottom: 105px;
+    right: 30px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+/* --- Footer --- */
+.footer {
+    background: #001a33;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.footer-social {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    background: var(--gold);
+    color: var(--primary-blue);
+}
+
+/* --- Efeitos de Entrada --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsividade --- */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-menu {
-        position: absolute;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        background-color: #004080;
-        flex-direction: column;
-        text-align: center;
-        transition: 0.4s;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-menu li {
-        margin: 15px 0;
-    }
-
-    .nav-menu li a {
-        font-size: 1.1rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
+    .hero-section { padding-top: 20px; }
+    .hero-badge { font-size: 1rem; padding: 10px 20px; }
+    .denuncias-grid { grid-template-columns: 1fr; }
 }

@@ -9,146 +9,109 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
+    
+    <base target="_blank">
 </head>
 <body>
 
-    <nav class="main-nav">
-        <div class="nav-container">
-            <ul class="nav-menu">
-                <li><a href="#inicio">INÍCIO</a></li>
-                <li><a href="#marcio">MÁRCIO</a></li>
-                <li><a href="#aline">ALINE</a></li>
-                <li><a href="#propostas">PROPOSTAS</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <header class="hero-section" id="inicio">
+    <section class="hero-section" id="inicio">
         <div class="hero-content">
             <h1 class="hero-title">Márcio O Fiscal do Povo</h1>
             <p class="hero-subtitle">CDA Sem Corrupção! 2028</p>
 
             <div class="hero-image-container">
-                <img src="foto-marcio.png" alt="Márcio O Fiscal do Povo" class="hero-image">
-                <div class="hero-badge">Juntos por Conceição do Araguaia - PA</div>
+                <img src="foto-marcio.png" alt="Márcio O Fiscal do Povo 2028" class="hero-image">
             </div>
-        </div>
-    </header>
 
-    <section class="biografia-section" id="marcio">
-        <div class="container-biografia">
-            <div class="bio-card">
-                <h2 class="section-title-premium">Quem é Márcio</h2>
-                <div class="bio-content">
-                    <p class="bio-intro">
-                        <strong>MÁRCIO RODRIGUES DE OLIVEIRA</strong>, nascido em 21/10/1978 (47 anos), filho de Josué (Jesu) Machado de Oliveira e Maria Helena Rodrigues de Oliveira, casado há 5 anos com Késia de Oliveira Quadros, pai da Maria Eduarda Marinho de Oliveira (20 anos).
-                    </p>
-                    <div class="bio-timeline">
-                        <div class="timeline-item">
-                            <i class="fas fa-tools"></i>
-                            <p>Iniciou profissionalmente aos 15 anos na marcenaria do pai como ajudante e depois marceneiro, no bairro Capelinha.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <i class="fas fa-laptop-code"></i>
-                            <p>Formado em Informática (2005) em Belém-PA. Atuou em diversas empresas de tecnologia em Goiânia-GO.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <i class="fas fa-trophy"></i>
-                            <p><strong>1º colocado</strong> no concurso para Analista de Sistemas da prefeitura de CDA, ocupando o cargo desde 2012.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <p>Graduado em Licenciatura em Informática (2022) e <strong>Engenharia Civil (2023)</strong>.</p>
-                        </div>
-                    </div>
-                    <p class="bio-footer-text">
-                        Profissional autônomo nas áreas de <strong>Engenharia Civil, Ambiental, Segurança do Trabalho e Educação</strong>.
-                    </p>
-                </div>
-            </div>
+            <div class="hero-badge">Juntos por Afonso Cláudio</div>
+        </div>
+
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <section class="biografia-section" id="aline" style="background: #ffffff;">
-        <div class="container-biografia">
-            <div class="bio-card" style="border-left: 8px solid var(--blue); border-right: 8px solid var(--gold); border-radius: 50px 0 50px 0;">
-                <h2 class="section-title-premium">Aline Valentina</h2>
-                <div class="bio-content">
-                    <p class="bio-intro">
-                        <strong>ALINE VALENTINA</strong>, solteira, traz para a iniciativa "O Fiscal do Povo" a experiência técnica e o compromisso social necessários para transformar a realidade local.
-                    </p>
-                    <div class="bio-timeline">
-                        <div class="timeline-item">
-                            <i class="fas fa-hands-helping"></i>
-                            <p>Formada em <strong>Assistência Social</strong>, com foco no desenvolvimento de políticas públicas e apoio direto à comunidade.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <i class="fas fa-comments"></i>
-                            <p>Atua profissionalmente como <strong>Terapeuta</strong>, promovendo saúde mental e bem-estar humano.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <i class="fas fa-users"></i>
-                            <p>Une visão social e terapêutica para fiscalizar e propor melhorias na saúde e assistência de Conceição do Araguaia.</p>
-                        </div>
-                    </div>
-                    <p class="bio-footer-text" style="background: var(--light-blue);">
-                        Dedicação e sensibilidade técnica a serviço da nossa população.
-                    </p>
-                </div>
+    <section class="denuncias-section" id="denuncias">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Denúncias</h2>
+            <p class="section-subtitle">Transparência e fiscalização em primeiro lugar. Acompanhe as denúncias e suas resoluções.</p>
+        </div>
+
+        <div class="denuncias-grid">
+            <div class="denuncia-card fade-in">
+                <div class="denuncia-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <h3 class="denuncia-title">Irregularidade em Licitação</h3>
+                <p class="denuncia-text">Denúncia sobre processo licitatório suspeito na área de infraestrutura. Documentos em análise.</p>
+                <span class="denuncia-date">10/03/2026</span>
+                <span class="denuncia-status status-investigando">Investigando</span>
+            </div>
+
+            <div class="denuncia-card fade-in">
+                <div class="denuncia-icon"><i class="fas fa-road"></i></div>
+                <h3 class="denuncia-title">Buracos nas Ruas - Centro</h3>
+                <p class="denuncia-text">Falta de manutenção nas vias principais. Prefeitura notificada.</p>
+                <span class="denuncia-date">08/03/2026</span>
+                <span class="denuncia-status status-pendente">Pendente</span>
+            </div>
+
+            <div class="denuncia-card fade-in">
+                <div class="denuncia-icon"><i class="fas fa-hospital"></i></div>
+                <h3 class="denuncia-title">Falta de Medicamentos na UBS</h3>
+                <p class="denuncia-text">Desabastecimento de medicamentos básicos na Unidade de Saúde.</p>
+                <span class="denuncia-date">05/03/2026</span>
+                <span class="denuncia-status status-resolvido">Resolvido</span>
             </div>
         </div>
     </section>
 
     <section class="propostas-section" id="propostas">
-        <div class="container-propostas">
-            <h2 class="section-title-premium" style="color: white; text-align: center;">Plataforma Política 2028</h2>
-            <p class="propostas-intro" style="text-align: center; color: white; margin-bottom: 40px;">Gestão técnica baseada na ética e transparência total.</p>
+        <div class="section-header fade-in">
+            <h2 class="section-title">Propostas de Melhorias</h2>
+            <p class="section-subtitle">Compromisso com o desenvolvimento de todos os cidadãos.</p>
+        </div>
 
-            <div class="propostas-grid">
-                <div class="proposta-card-tech">
-                    <div class="proposta-icon"><i class="fas fa-eye"></i></div>
-                    <h3>Gestão e Transparência</h3>
-                    <ul>
-                        <li>Portal da Transparência em tempo real.</li>
-                        <li>Fim do apadrinhamento político em contratações.</li>
-                    </ul>
-                </div>
-                <div class="proposta-card-tech">
-                    <div class="proposta-icon"><i class="fas fa-hospital-user"></i></div>
-                    <h3>Saúde Sem Espera</h3>
-                    <ul>
-                        <li>Sistema digital de agendamento de consultas.</li>
-                        <li>Mutirões permanentes de exames e cirurgias.</li>
-                    </ul>
-                </div>
-                <div class="proposta-card-tech">
-                    <div class="proposta-icon"><i class="fas fa-road"></i></div>
-                    <h3>Infraestrutura Urbana</h3>
-                    <ul>
-                        <li>Programa "Cidade Sem Buracos" e drenagem.</li>
-                        <li>Iluminação Pública 100% LED.</li>
-                    </ul>
-                </div>
-                <div class="proposta-card-tech">
-                    <div class="proposta-icon"><i class="fas fa-tractor"></i></div>
-                    <h3>Agricultura Forte</h3>
-                    <ul>
-                        <li>Patrulha Mecanizada e assistência ao produtor.</li>
-                        <li>Melhoria das estradas vicinais.</li>
-                    </ul>
-                </div>
+        <div class="propostas-container">
+            <div class="proposta-card fade-in">
+                <span class="proposta-number">01</span>
+                <div class="proposta-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="proposta-title">Segurança Pública</h3>
+                <ul class="proposta-list">
+                    <li>Aumento do efetivo policial</li>
+                    <li>Câmeras de monitoramento</li>
+                </ul>
+            </div>
+
+            <div class="proposta-card fade-in">
+                <span class="proposta-number">02</span>
+                <div class="proposta-icon"><i class="fas fa-heartbeat"></i></div>
+                <h3 class="proposta-title">Saúde de Qualidade</h3>
+                <ul class="proposta-list">
+                    <li>Reforma das UBS</li>
+                    <li>Mais médicos especialistas</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>Márcio O Fiscal do Povo. © 2026 Todos os direitos reservados. <br> Conceição do Araguaia - PA</p>
+        <div class="footer-content">
+            <div class="footer-logo">MÁRCIO O FISCAL DO POVO 2028</div>
+            <p class="footer-text">CDA Sem Corrupção! Juntos por Afonso Cláudio</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="footer-copy">© 2026 Campanha Márcio O Fiscal do Povo.</p>
+        </div>
     </footer>
 
     <a href="https://wa.me/5594992500073" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <div class="whatsapp-tooltip">(94) 99250-0073 - Fale com a gente!</div>
 
     <script src="script.js"></script>
+
 </body>
 </html>

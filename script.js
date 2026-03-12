@@ -1,64 +1,40 @@
-// Aguarda o carregamento total do DOM
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* --- 1. ANIMAÇÃO DE ENTRADA (FADE-IN) --- */
-    // Configura o Intersection Observer para detectar quando os elementos aparecem na tela
+    
+    // Animação de entrada ao scroll
     const observerOptions = {
-        threshold: 0.15 // Ativa quando 15% do elemento estiver visível
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
 
-    const fadeInObserver = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Para de observar após animar pela primeira vez
-                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Seleciona todos os elementos que devem ter animação
-    const animatedElements = document.querySelectorAll('.fade-in, .bio-card, .proposta-card-tech');
-    animatedElements.forEach(el => fadeInObserver.observe(el));
-
-
-    /* --- 2. SCROLL SUAVE PARA O MENU --- */
-    // Faz com que o clique nos links do menu deslize a página suavemente
-    const menuLinks = document.querySelectorAll('.nav-menu a');
-    
-    menuLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const targetId = link.getAttribute('href');
-            
-            // Só aplica se for um link interno (que começa com #)
-            if (targetId.startsWith('#')) {
-                e.preventDefault();
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    // Calcula a posição descontando a altura do menu fixo
-                    const menuHeight = document.querySelector('.main-nav').offsetHeight;
-                    const targetPosition = targetSection.offsetTop - menuHeight;
-
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
     });
 
-
-    /* --- 3. EFEITO NO BOTÃO WHATSAPP --- */
-    // Adiciona um leve pulso ao botão após 5 segundos de página aberta
-    const whatsappBtn = document.querySelector('.whatsapp-float');
-    if (whatsappBtn) {
-        setTimeout(() => {
-            whatsappBtn.style.transition = "transform 0.5s ease";
-            whatsappBtn.style.transform = "scale(1.2)";
-            setTimeout(() => whatsappBtn.style.transform = "scale(1)", 500);
-        }, 5000);
+    // Smooth scroll para o indicador da Hero (ajustado para a sua classe)
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            const target = document.getElementById('denuncias');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
     }
 
+    // Efeito parallax sutil na hero
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero-section');
+        if (hero) {
+            hero.style.backgroundPositionY = (scrolled * 0.3) + 'px';
+        }
+    });
 });
